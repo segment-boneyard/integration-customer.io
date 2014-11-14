@@ -1,0 +1,31 @@
+{
+  "input": {
+    "type": "group",
+    "userId": "user-id",
+    "groupId": "group-id",
+    "timestamp": "2014",
+    "traits": {
+      "created": "2014-01-01",
+      "email": "friends@segment.io",
+      "date": "2014-01-01",
+      "trait": true,
+      "name": "segment",
+      "site": "https://segment.io"
+    }
+  },
+  "output": {
+    "groupId": "group-id",
+    "timestamp": "2014-01-01T00:00:00.000Z",
+    "traits": {
+      "Group created": 1388534400,
+      "Group date": 1388534400,
+      "Group id": "group-id",
+      "Group name": "segment",
+      "Group site": "https://segment.io",
+      "email": "friends@segment.io",
+      "Group trait": true
+    },
+    "type": "group",
+    "userId": "user-id"
+  }
+}

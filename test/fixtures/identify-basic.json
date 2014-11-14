@@ -1,0 +1,19 @@
+{
+  "input": {
+    "type": "identify",
+    "userId": "user-id",
+    "traits": {
+      "created": "2014-01-01",
+      "email": "jd@example.com",
+      "date": "2014-01-01",
+      "trait": true
+    }
+  },
+  "output": {
+    "email": "jd@example.com",
+    "created_at": 1388534400,
+    "id": "user-id",
+    "trait": true,
+    "date": 1388534400
+  }
+}

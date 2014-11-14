@@ -1,8 +1,8 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-customerio.png)](https://circleci.com/gh/segmentio/integration-customerio)
+[![Build Status](https://circleci.com/gh/segmentio/integration-customerio/tree/master.png?style=badge)](https://circleci.com/gh/segmentio/integration-customerio/tree/master)
 
-# Customer.io server-side integration.
+# integration-customerio
 
-Write me...
+Customer.io server-side integration for Segment.
 
 
 ## License

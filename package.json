@@ -16,7 +16,7 @@
     "convert-dates": "^0.1.1",
     "obj-case": "^0.1.1",
     "segmentio-facade": "^2.0.5",
-    "segmentio-integration": "^2.3.3",
+    "segmentio-integration": "^2.3.4",
     "unix-time": "^1.0.1"
   },
   "devDependencies": {

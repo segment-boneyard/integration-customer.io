@@ -34,8 +34,7 @@ describe('Customer.io', function(){
       .ensure('settings.siteId')
       .ensure('settings.apiKey')
       .ensure('message.userId')
-      .channels(['server'])
-      .retries(2);
+      .channels(['server']);
   });
 
   describe('.validate()', function(){

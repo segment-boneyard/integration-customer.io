@@ -9,7 +9,7 @@ var uid = require('uid');
  * Create our testing variables
  */
 
-var firstId  = uid();
+var firstId  = uid() + '/' + uid();
 var secondId = uid();
 var groupId  = uid();
 var email = 'testing-' + firstId + '@segment.io';

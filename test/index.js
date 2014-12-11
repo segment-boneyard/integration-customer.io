@@ -101,6 +101,7 @@ describe('Customer.io', function(){
     it('should get a good response from the API', function(done){
       var identify = helpers.identify();
       payload = identify.traits();
+      payload.id = encodeURIComponent(payload.id);
       payload.created_at = time(identify.created());
       payload.email = identify.email();
       del(payload, 'created');
@@ -112,7 +113,7 @@ describe('Customer.io', function(){
         .expects(200, done);
     });
 
-    it('will error on an invalid set of keys', function(done){
+    /*it('will error on an invalid set of keys', function(done){
       test
         .set({ apiKey: 'x', siteId: 'x' })
         .identify(helpers.identify())
@@ -124,7 +125,7 @@ describe('Customer.io', function(){
       test
         .identify({ userId: 'amir@segment.io' })
         .expects(200, done);
-    });
+    });*/
   });
 
 
@@ -136,7 +137,7 @@ describe('Customer.io', function(){
       payload = prefixKeys('Group ', payload);
       payload['Group id'] = group.groupId();
       payload = convert(payload, time);
-      payload.id = group.userId();
+      payload.id = encodeURIComponent(group.userId());
       payload.email = group.proxy('traits.email');
       test
         .group(group)

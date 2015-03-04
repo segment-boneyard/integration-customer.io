@@ -9,10 +9,10 @@ var uid = require('uid');
  * Create our testing variables
  */
 
-var firstId  = uid();
+var firstId  = uid() + '%' + uid();
 var secondId = uid();
 var groupId  = uid();
-var email = 'testing-' + firstId + '@segment.io';
+var email = 'testing-' + secondId + '@segment.com';
 
 /**
  * Mapper tester.
@@ -157,7 +157,7 @@ exports.identify = function (options) {
       firstName   : 'John',
       'Last Name' : 'Doe',
       email       : options.email || email,
-      company     : 'Segment.io',
+      company     : 'Segment',
       city        : 'San Francisco',
       state       : 'CA',
       phone       : '5555555555',
@@ -194,8 +194,8 @@ exports.page = function(options){
     name: 'Docs',
     category: 'Support',
     properties: {
-      url: 'https://segment.io/docs',
-      title: 'Analytics.js - Segment.io'
+      url: 'https://segment.com/docs',
+      title: 'Analytics.js - Segment'
     },
     context: {
       ip: '12.212.12.49'
@@ -241,7 +241,7 @@ exports.group = function(options){
     userId: firstId,
     traits: {
       email: email,
-      name: 'Segment.io',
+      name: 'Segment',
       state: 'CA',
       city: 'San Francisco',
       created: new Date('2/1/2014'),

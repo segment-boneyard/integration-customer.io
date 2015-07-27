@@ -1,0 +1,22 @@
+{
+  "input": {
+    "type": "page",
+    "userId": "user-id",
+    "event": "my-event",
+    "timestamp": "2014",
+    "properties": {
+      "date": "2014-01-01",
+      "title": "Welcome | Initech",
+      "url": "http://www.initech.com"
+    }
+  },
+  "output": {
+    "timestamp": 1388534400,
+    "type": "page",
+    "name": "http://www.initech.com",
+    "data": {
+      "date": 1388534400,
+      "title": "Welcome | Initech"
+    }
+  }
+}

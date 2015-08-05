@@ -94,6 +94,7 @@ describe('Customer.io', function(){
       payload.name = url;
       test
         .page(page)
+        .requests(2)
         .request(1)
         .sends(payload)
         .expects(200, done)
@@ -116,6 +117,7 @@ describe('Customer.io', function(){
       payload.name = track.event();
       test
         .track(track)
+        .requests(1)
         .request(1)
         .sends(payload)
         .expects(200, done)
@@ -140,6 +142,7 @@ describe('Customer.io', function(){
       payload = convert(payload, time);
       test
         .identify(identify)
+        .requests(1)
         .request(1)
         .sends(payload)
         .expects(200, done);
@@ -173,6 +176,7 @@ describe('Customer.io', function(){
       payload.email = group.proxy('traits.email');
       test
         .group(group)
+        .requests(1)
         .request(1)
         .sends(payload)
         .expects(200, done);

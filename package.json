@@ -1,6 +1,6 @@
 {
   "name": "integration-customerio",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "private": true,
   "description": "Customer.io server-side integration",
   "author": "Segment <friends@segment.com>",

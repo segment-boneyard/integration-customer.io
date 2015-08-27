@@ -1,4 +1,10 @@
 
+1.1.0 / 2015-08-27
+==================
+
+  * Don't send _last_visit for identify or track
+  * Add support for page calls
+
 1.0.7 / 2014-12-08
 ==================
 

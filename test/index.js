@@ -73,6 +73,40 @@ describe('Customer.io', function(){
         test.maps('track-basic');
       });
     });
+
+    describe('page', function(){
+      it('should map basic message', function(){
+        test.maps('page-basic');
+      });
+    });
+  });
+
+  describe('.page()', function(){
+    it('should get a good response from the API', function(done){
+      var page = helpers.page();
+      var data = helpers.page().properties();
+      var url = data.url;
+      delete data.url;
+
+      payload.timestamp = time(page.timestamp());
+      payload.data = convert(data, time);
+      payload.type = 'page';
+      payload.name = url;
+      test
+        .page(page)
+        .requests(2)
+        .request(1)
+        .sends(payload)
+        .expects(200, done)
+    });
+
+    it('will error on an invalid set of keys', function(done){
+      test
+        .set({ apiKey: 'x', siteId: 'x' })
+        .page(helpers.page())
+        .expects(401)
+        .error(done);
+    });
   });
 
   describe('.track()', function(){
@@ -83,6 +117,7 @@ describe('Customer.io', function(){
       payload.name = track.event();
       test
         .track(track)
+        .requests(1)
         .request(1)
         .sends(payload)
         .expects(200, done)
@@ -107,6 +142,7 @@ describe('Customer.io', function(){
       payload = convert(payload, time);
       test
         .identify(identify)
+        .requests(1)
         .request(1)
         .sends(payload)
         .expects(200, done);
@@ -140,6 +176,7 @@ describe('Customer.io', function(){
       payload.email = group.proxy('traits.email');
       test
         .group(group)
+        .requests(1)
         .request(1)
         .sends(payload)
         .expects(200, done);

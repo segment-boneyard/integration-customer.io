@@ -1,4 +1,4 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-customerio/tree/master.png?style=badge)](https://circleci.com/gh/segmentio/integration-customerio/tree/master)
+[![Build Status](https://circleci.com/gh/segmentio/integration-customerio/tree/master.png?style=svg)](https://circleci.com/gh/segmentio/integration-customerio/tree/master)
 
 # integration-customerio
 

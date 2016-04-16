@@ -1,22 +1,20 @@
+'use strict';
 
 var Test = require('segmentio-integration-tester');
-var helpers = require('./helpers');
-var facade = require('segmentio-facade');
 var convert = require('convert-dates');
-var mapper = require('../lib/mapper');
 var del = require('obj-case').del;
 var time = require('unix-time');
-var assert = require('assert');
-var should = require('should');
+var mapper = require('../lib/mapper');
+var helpers = require('./helpers');
 var CustomerIO = require('..');
 
-describe('Customer.io', function(){
+describe('Customer.io', function() {
   var settings;
   var payload;
   var test;
   var cio;
 
-  beforeEach(function(){
+  beforeEach(function() {
     settings = {
       siteId: '83d520c82f8ddc4a67c8',
       apiKey: '1da93169bcc219b6f583'
@@ -27,7 +25,7 @@ describe('Customer.io', function(){
     payload = {};
   });
 
-  it('should have the correct settings', function(){
+  it('should have the correct settings', function() {
     test
       .name('Customer.io')
       .endpoint('https://app.customer.io/api/v1/customers/')
@@ -37,52 +35,52 @@ describe('Customer.io', function(){
       .channels(['server']);
   });
 
-  describe('.validate()', function(){
-    it('should be invalid when apiKey is missing', function(){
+  describe('.validate()', function() {
+    it('should be invalid when apiKey is missing', function() {
       test.invalid({ userId: 'user-id' }, { siteId: 'xxx' });
     });
 
-    it('should be invalid when siteId is missing', function(){
+    it('should be invalid when siteId is missing', function() {
       test.invalid({ userId: 'user-id' }, { apiKey: 'api-key' });
     });
 
-    it('should be invalid when userId is missing', function(){
+    it('should be invalid when userId is missing', function() {
       test.invalid({}, settings);
     });
 
-    it('should be valid when siteId and apiKey is given', function(){
+    it('should be valid when siteId and apiKey is given', function() {
       test.valid({ userId: 'user-id' }, settings);
     });
   });
 
-  describe('mapper', function(){
-    describe('identify', function(){
-      it('should map basic message', function(){
+  describe('mapper', function() {
+    describe('identify', function() {
+      it('should map basic message', function() {
         test.maps('identify-basic');
       });
     });
 
-    describe('group', function(){
-      it('should map basic message', function(){
+    describe('group', function() {
+      it('should map basic message', function() {
         test.maps('group-basic');
       });
     });
 
-    describe('track', function(){
-      it('should map basic message', function(){
+    describe('track', function() {
+      it('should map basic message', function() {
         test.maps('track-basic');
       });
     });
 
-    describe('page', function(){
-      it('should map basic message', function(){
+    describe('page', function() {
+      it('should map basic message', function() {
         test.maps('page-basic');
       });
     });
   });
 
-  describe('.page()', function(){
-    it('should get a good response from the API', function(done){
+  describe('.page()', function() {
+    it('should get a good response from the API', function(done) {
       var page = helpers.page();
       var data = helpers.page().properties();
       var url = data.url;
@@ -97,10 +95,10 @@ describe('Customer.io', function(){
         .requests(2)
         .request(1)
         .sends(payload)
-        .expects(200, done)
+        .expects(200, done);
     });
 
-    it('will error on an invalid set of keys', function(done){
+    it('will error on an invalid set of keys', function(done) {
       test
         .set({ apiKey: 'x', siteId: 'x' })
         .page(helpers.page())
@@ -109,8 +107,8 @@ describe('Customer.io', function(){
     });
   });
 
-  describe('.track()', function(){
-    it('should get a good response from the API', function(done){
+  describe('.track()', function() {
+    it('should get a good response from the API', function(done) {
       var track = helpers.track();
       payload.timestamp = time(track.timestamp());
       payload.data = convert(track.properties(), time);
@@ -120,10 +118,10 @@ describe('Customer.io', function(){
         .requests(1)
         .request(1)
         .sends(payload)
-        .expects(200, done)
+        .expects(200, done);
     });
 
-    it('will error on an invalid set of keys', function(done){
+    it('will error on an invalid set of keys', function(done) {
       test
         .set({ apiKey: 'x', siteId: 'x' })
         .track(helpers.track())
@@ -132,8 +130,8 @@ describe('Customer.io', function(){
     });
   });
 
-  describe('.identify()', function(){
-    it('should get a good response from the API', function(done){
+  describe('.identify()', function() {
+    it('should get a good response from the API', function(done) {
       var identify = helpers.identify();
       payload = identify.traits();
       payload.created_at = time(identify.created());
@@ -148,7 +146,7 @@ describe('Customer.io', function(){
         .expects(200, done);
     });
 
-    it('will error on an invalid set of keys', function(done){
+    it('will error on an invalid set of keys', function(done) {
       test
         .set({ apiKey: 'x', siteId: 'x' })
         .identify(helpers.identify())
@@ -156,7 +154,7 @@ describe('Customer.io', function(){
         .error(done);
     });
 
-    it('should identify with only an email as id', function(done){
+    it('should identify with only an email as id', function(done) {
       test
         .identify({ userId: 'amir@segment.io' })
         .expects(200, done);
@@ -164,8 +162,8 @@ describe('Customer.io', function(){
   });
 
 
-  describe('.group()', function(){
-    it('should get a good response from the API', function(done){
+  describe('.group()', function() {
+    it('should get a good response from the API', function(done) {
       var group = helpers.group();
       payload = group.traits();
       del(payload, 'email');
@@ -183,17 +181,17 @@ describe('Customer.io', function(){
     });
   });
 
-  describe('.visit()', function(){
-    it('should not send the request if active is false', function(done){
+  describe('.visit()', function() {
+    it('should not send the request if active is false', function(done) {
       var track = helpers.track();
       track.obj.options.active = false;
-      cio.visit(track, function(){
+      cio.visit(track, function() {
         arguments.length.should.eql(0);
         done();
       });
     });
 
-    it('should send the request if active is true', function(done){
+    it('should send the request if active is true', function(done) {
       var track = helpers.track(); // true by default.
       cio.visit(track, done);
     });
@@ -204,8 +202,8 @@ describe('Customer.io', function(){
  * Prefix keys
  */
 
-function prefixKeys(prefix, obj){
-  return Object.keys(obj).reduce(function(ret, key){
+function prefixKeys(prefix, obj) {
+  return Object.keys(obj).reduce(function(ret, key) {
     ret[prefix + key] = obj[key];
     return ret;
   }, {});

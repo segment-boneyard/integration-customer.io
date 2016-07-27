@@ -17,7 +17,7 @@
     "isodate-traverse": "^0.3.2",
     "obj-case": "^0.1.1",
     "segmentio-facade": "^2.0.5",
-    "segmentio-integration": "^3.0.5",
+    "segmentio-integration": "git+ssh://git@github.com/segmentio/integration.git#server-side-debugger-dep",
     "unix-time": "^1.0.1"
   },
   "devDependencies": {

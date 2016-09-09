@@ -1,5 +1,10 @@
 
-2.0.0 / 2015-08-27
+2.0.1 / 2015-09-09
+==================
+
+  * Rename integration to match slug
+
+2.0.0 / 2015-09-08
 ==================
 
   * Add versioning support

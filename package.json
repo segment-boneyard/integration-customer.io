@@ -1,6 +1,6 @@
 {
   "name": "integration-customer.io",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "integration-version": "2016-09-08",
   "private": true,
   "description": "Customer.io server-side integration",

@@ -1,6 +1,6 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-customerio/tree/master.png?style=svg)](https://circleci.com/gh/segmentio/integration-customerio/tree/master)
+[![Build Status](https://circleci.com/gh/segmentio/integration-customer.io/tree/master.png?style=svg)](https://circleci.com/gh/segmentio/integration-customer.io/tree/master)
 
-# integration-customerio
+# integration-customer.io
 
 Customer.io server-side integration for Segment.
 

@@ -1,5 +1,5 @@
 {
-  "name": "integration-customerio",
+  "name": "integration-customer.io",
   "version": "2.0.0",
   "integration-version": "2016-09-08",
   "private": true,
@@ -7,7 +7,7 @@
   "author": "Segment <friends@segment.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/segmentio/integration-customerio"
+    "url": "https://github.com/segmentio/integration-customer.io"
   },
   "main": "lib/index.js",
   "scripts": {

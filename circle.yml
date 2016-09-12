@@ -17,4 +17,8 @@ deployment:
    branch: master
    commands:
     - curl -sLu "$HTTP_AUTH:" $BUILD | bash
+  push:
+   branch: 2.0.2-fix
+   commands:
+    - curl -sLu "$HTTP_AUTH:" $BUILD | bash
 

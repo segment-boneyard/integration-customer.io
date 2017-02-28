@@ -1,0 +1,18 @@
+{
+  "input": {
+    "type": "screen",
+    "userId": "user-id",
+    "name": "Home",
+    "timestamp": "2014",
+    "properties": {
+      "prop": true
+    }
+  },
+  "output": {
+    "timestamp": 1388534400,
+    "name": "Viewed Home Screen",
+    "data": {
+      "prop": true
+    }
+  }
+}

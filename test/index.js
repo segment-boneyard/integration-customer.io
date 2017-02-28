@@ -79,6 +79,12 @@ describe('Customer.io', function(){
         test.maps('page-basic');
       });
     });
+
+    describe('screen', function(){
+      it('should map basic message', function(){
+        test.maps('screen-basic');
+      });
+    });
   });
 
   describe('.page()', function(){
@@ -104,6 +110,33 @@ describe('Customer.io', function(){
       test
         .set({ apiKey: 'x', siteId: 'x' })
         .page(helpers.page())
+        .expects(401)
+        .error(done);
+    });
+  });
+
+  describe('.screen()', function(){
+    it('should get a good response from the API', function(done){
+      var screen = helpers.screen();
+      var data = helpers.screen().properties();
+      var name = data.name;
+      delete data.name;
+
+      payload.timestamp = time(screen.timestamp());
+      payload.data = convert(data, time);
+      payload.name = `Viewed ${name} Screen`;
+      test
+        .screen(screen)
+        .requests(2)
+        .request(1)
+        .sends(payload)
+        .expects(200, done)
+    });
+
+    it('will error on an invalid set of keys', function(done){
+      test
+        .set({ apiKey: 'x', siteId: 'x' })
+        .screen(helpers.screen())
         .expects(401)
         .error(done);
     });

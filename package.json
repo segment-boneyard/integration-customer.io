@@ -1,6 +1,6 @@
 {
   "name": "@segment/integration-customer.io",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "integration-version": "2016-09-09",
   "description": "Customer.io server-side integration",
   "author": "Segment <friends@segment.com>",

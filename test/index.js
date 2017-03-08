@@ -18,8 +18,8 @@ describe('Customer.io', function(){
 
   beforeEach(function(){
     settings = {
-      siteId: '83d520c82f8ddc4a67c8',
-      apiKey: '1da93169bcc219b6f583'
+      siteId: '61837a6c9e8b49d0ef71',
+      apiKey: '1d425925af6dbcd47fc4'
     };
     cio = new CustomerIO(settings);
     test = Test(cio, __dirname);

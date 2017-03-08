@@ -1,4 +1,9 @@
 
+2.3.1 / 2017-03-08
+==================
+
+  * bump package version and tweak build process
+
 2.3.0 / 2017-03-08
 ==================
 

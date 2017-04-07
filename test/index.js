@@ -151,7 +151,7 @@ describe('Customer.io', function(){
       test
         .track(track)
         .requests(1)
-        .request(1)
+        .request(0)
         .sends(payload)
         .expects(200, done)
     });
@@ -176,7 +176,7 @@ describe('Customer.io', function(){
       test
         .identify(identify)
         .requests(1)
-        .request(1)
+        .request(0)
         .sends(payload)
         .expects(200, done);
     });
@@ -210,7 +210,7 @@ describe('Customer.io', function(){
       test
         .group(group)
         .requests(1)
-        .request(1)
+        .request(0)
         .sends(payload)
         .expects(200, done);
     });
